@@ -1,0 +1,54 @@
+{
+   "pages": [
+      "pages/login/login",
+      "pages/index/index",
+      "pages/user/user",
+      "pages/search/search",
+      "pages/changepwd/changepwd",
+      "pages/common/findbytype/findbytype",
+      "pages/common/findbyterm/findbyterm",
+      "pages/common/findbytime/findbytime",
+      "pages/common/vacate/vacate",
+      "pages/common/info/info",
+      "pages/common/pass/pass",
+      "pages/common/checking/checking",
+      "pages/common/fail/fail",
+      "pages/common/recycle/trashbin/trashbin",
+      "pages/common/recycle/reedit/reedit"
+   ],
+   "window": {
+      "backgroundTextStyle": "dark",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "请假管理",
+      "navigationBarTextStyle": "white",
+      "navigationStyle": "custom"
+   },
+   "tabBar": {
+      "color": "#000",
+      "selectedColor": "#0094ff",
+      "list": [
+         {
+            "pagePath": "pages/index/index",
+            "text": "首页",
+            "iconPath": "icons/home.png",
+            "selectedIconPath": "icons/home_active.png"
+         },
+         {
+            "pagePath": "pages/search/search",
+            "text": "搜索",
+            "iconPath": "icons/search.png",
+            "selectedIconPath": "icons/search_active.png"
+         },
+         {
+            "pagePath": "pages/user/user",
+            "text": "用户",
+            "iconPath": "icons/user.png",
+            "selectedIconPath": "icons/user_active.png"
+         }
+      ]
+   },
+   "usingComponents": {
+      "cu-custom": "/colorui/components/cu-custom"
+   },
+   "sitemapLocation": "sitemap.json"
+}

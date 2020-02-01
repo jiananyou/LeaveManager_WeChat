@@ -1,0 +1,39 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="true">
+   <view slot="backText">返回</view>
+   <view slot="content">审核通过的请假信息</view>
+</cu-custom>
+<view wx:if="{{vacateList!=''}}">
+   <view class="cu-list menu card-menu margin-top" wx:for="{{vacateList}}" wx:key>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">姓名</text>
+            <text>{{item.stu_name}}</text>
+         </view>
+      </view>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">提交时间</text>
+            <text>{{item.submit_time}}</text>
+         </view>
+      </view>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">请假时间段</text>
+            <text>{{item.start_time+' ~ '+item.end_time}}</text>
+         </view>
+      </view>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">请假类型</text>
+            <text>{{item.type}}</text>
+         </view>
+      </view>
+      <view class="cu-form-group">
+         <view class="action">
+         </view>
+         <view class="action">
+            <button class="cu-btn bg-blue shadow" bindtap="getInfo" data-index="{{index}}">查看详情</button>
+         </view>
+      </view>
+   </view>
+</view>

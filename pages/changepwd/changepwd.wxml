@@ -1,0 +1,29 @@
+<cu-custom bgColor="bg-gradual-blue">
+   <view slot="content">修改密码</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+   <view class="cu-form-group margin-top">
+      <view class="title">新密码</view>
+      <input placeholder="请输入新密码" type="password" name="newPwd"></input>
+   </view>
+   <view class="cu-form-group">
+      <view class="title">确认密码</view>
+      <input placeholder="请再次输入密码" type="password" name="confirmPwd"></input>
+   </view>
+   <view class="padding">
+      <button class="cu-btn block round shadow bg-blue margin-tb-sm lg" form-type="submit">确认修改</button>
+   </view>
+   <view class="cu-modal {{show?'show':''}}">
+      <view class="cu-dialog">
+         <view class="cu-bar bg-white justify-end">
+            <view class="content">提示信息</view>
+            <view class="action" bindtap="hideDialog">
+               <text class="cuIcon-close text-red"></text>
+            </view>
+         </view>
+         <view class="padding-xl">
+            {{message}}
+         </view>
+      </view>
+   </view>
+</form>

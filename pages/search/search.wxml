@@ -1,0 +1,10 @@
+<cu-custom bgColor="bg-gradual-blue">
+   <view slot="content">查询请假记录</view>
+</cu-custom>
+<view class='nav-list margin-top-lg'>
+   <view class="nav-li bg-{{item.color}}" bindtap="{{item.bindFunc}}" wx:for="{{elements}}" wx:key>
+      <view class="nav-title">{{item.title}}</view>
+      <view class="nav-name">{{item.name}}</view>
+      <text class='cuIcon-{{item.icon}}'></text>
+   </view>
+</view>

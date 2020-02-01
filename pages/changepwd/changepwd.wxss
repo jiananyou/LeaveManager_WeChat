@@ -1,0 +1,3 @@
+.cu-form-group .title {
+   min-width: calc(5em + 30rpx);
+}

@@ -1,0 +1,62 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="true">
+   <view slot="backText">返回</view>
+   <view slot="content">按时间段查询</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+   <view class="cu-form-group">
+      <view class="title">开始时间</view>
+      <picker mode="date" value="{{date}}" start="2019-11-23" end="2020-01-01" bindchange="startTimeChange">
+         <view class="picker">
+            {{start_time}}
+         </view>
+      </picker>
+   </view>
+   <view class="cu-form-group">
+      <view class="title">结束时间</view>
+      <picker mode="date" value="{{date}}" start="{{start_time}}" end="2020-01-01" bindchange="endTimeChange">
+         <view class="picker">
+            {{end_time}}
+         </view>
+      </picker>
+   </view>
+   <view class="padding-lr-xl">
+      <button class="cu-btn block round shadow bg-blue margin-tb-sm lg" form-type="submit">
+         查询
+      </button>
+   </view>
+</form>
+<view wx:if="{{show}}">
+   <view class="cu-list menu card-menu margin-top-xl" wx:for="{{vacateList}}" wx:key>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">姓名</text>
+            <text>{{item.stu_name}}</text>
+         </view>
+      </view>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">提交时间</text>
+            <text>{{item.submit_time}}</text>
+         </view>
+      </view>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">请假时间段</text>
+            <text>{{item.start_time+' ~ '+item.end_time}}</text>
+         </view>
+      </view>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">请假类型</text>
+            <text>{{item.type}}</text>
+         </view>
+      </view>
+      <view class="cu-form-group">
+         <view class="action">
+         </view>
+         <view class="action">
+            <button class="cu-btn bg-blue shadow" bindtap="getInfo" data-index="{{index}}">查看详情</button>
+         </view>
+      </view>
+   </view>
+</view>

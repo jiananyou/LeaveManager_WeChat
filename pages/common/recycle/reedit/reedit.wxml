@@ -1,0 +1,78 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="true">
+   <view slot="backText">返回</view>
+   <view slot="content">填写请假申请信息</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+   <view class="cu-form-group margin-top">
+      <view class="title">
+         <text class="cuIcon-title text-red"></text>申请人
+      </view>
+      <input placeholder="请输入学号" name="id" value="{{vacate.id}}"></input>
+   </view>
+   <view class="cu-form-group">
+      <view class="title">
+         <text class="cuIcon-title text-red"></text>开始时间
+      </view>
+      <picker mode="date" value="{{date}}" start="2019-11-23" end="2020-01-01" bindchange="startTimeChange">
+         <view class="picker">
+            {{start_time}}
+         </view>
+      </picker>
+   </view>
+   <view class="cu-form-group">
+      <view class="title">
+         <text class="cuIcon-title text-red"></text>结束时间
+      </view>
+      <picker mode="date" value="{{date}}" start="{{start_time}}" end="2020-01-01" bindchange="endTimeChange">
+         <view class="picker">
+            {{end_time}}
+         </view>
+      </picker>
+   </view>
+   <view class="cu-form-group">
+      <view class="title">
+         <text class="cuIcon-title text-red"></text>请假类型
+      </view>
+      <picker bindchange="typeChange" value="{{index}}" range="{{type}}">
+         <view class="picker">
+            {{index?type[index]:'请选择类型'}}
+         </view>
+      </picker>
+   </view>
+   <view class="cu-form-group" wx:if="{{index==3}}">
+      <view class="title">
+         <text space="emsp">请假原因</text>
+      </view>
+      <input placeholder="请填写请假原因" name="result" value="{{vacate.result}}"></input>
+   </view>
+   <view class="cu-form-group bg-white margin-top">
+      <view class="action">
+         <text class="cuIcon-title text-red"></text>请假课程列表
+      </view>
+   </view>
+   <!-- 选择的课程列表 -->
+   <view class="course-list">
+      <view class="course" wx:for="{{course_list}}" wx:key>
+         {{item}}
+      </view>
+   </view>
+   <view class="padding">
+      <button class="cu-btn block round shadow bg-blue margin-tb-sm lg" form-type="submit">
+         提交
+      </button>
+   </view>
+   <!-- 表单信息未填写完整dialog -->
+   <view class="cu-modal {{showMessage?'show':''}}">
+      <view class="cu-dialog">
+         <view class="cu-bar bg-white justify-end">
+            <view class="content">提示信息</view>
+            <view class="action" bindtap="hideMessage">
+               <text class="cuIcon-close text-red"></text>
+            </view>
+         </view>
+         <view class="padding-xl">
+            {{message}}
+         </view>
+      </view>
+   </view>
+</form>

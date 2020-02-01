@@ -1,0 +1,37 @@
+<cu-custom bgColor="bg-gradual-blue">
+   <view slot="content">登录</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+   <view class="cu-form-group margin-top">
+      <view class="title">用户ID</view>
+      <input placeholder="请输入用户ID" name="id"></input>
+   </view>
+   <view class="cu-form-group">
+      <view class="title">密码</view>
+      <input placeholder="请输入密码" type="password" name="pwd"></input>
+   </view>
+   <view class="cu-form-group">
+      <view class="title">用户身份</view>
+      <picker bindchange="identityChange" value="{{index}}" range="{{identity}}">
+         <view class="picker">
+            {{index?identity[index]:'请选择身份'}}
+         </view>
+      </picker>
+   </view>
+   <view class="padding">
+      <button class="cu-btn block round shadow bg-blue margin-tb-sm lg" form-type="submit">登录</button>
+   </view>
+   <view class="cu-modal {{show?'show':''}}">
+      <view class="cu-dialog">
+         <view class="cu-bar bg-white justify-end">
+            <view class="content">提示信息</view>
+            <view class="action" bindtap="hideDialog">
+               <text class="cuIcon-close text-red"></text>
+            </view>
+         </view>
+         <view class="padding-xl">
+            {{message}}
+         </view>
+      </view>
+   </view>
+</form>

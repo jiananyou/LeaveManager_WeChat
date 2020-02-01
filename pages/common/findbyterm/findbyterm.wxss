@@ -1,0 +1,8 @@
+.text-grey {
+   display: inline-block;
+   min-width: calc(5em + 30rpx);
+}
+
+.border-bottom {
+   border-bottom: 1rpx solid #eee;
+}

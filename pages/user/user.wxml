@@ -1,0 +1,24 @@
+<cu-custom bgColor="bg-gradual-blue">
+   <view slot="content">用户信息</view>
+</cu-custom>
+<view class="cu-list menu-avatar margin-top">
+   <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url(../../image/head.jpg);"></view>
+      <view class="content flex-sub">
+         <view>{{name}}</view>
+         <view class="text-gray text-sm flex justify-between">
+            id:{{id}}
+         </view>
+      </view>
+   </view>
+</view>
+<view class="cu-bar margin-top bg-white" bindtap="changepwd">
+   <view class="content">
+      修改密码
+   </view>
+</view>
+<view class="cu-bar margin-top-xs bg-white" bindtap="logout">
+   <view class="content">
+      退出登录
+   </view>
+</view>

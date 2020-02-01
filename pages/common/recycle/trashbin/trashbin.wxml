@@ -1,0 +1,38 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="true">
+   <view slot="backText">返回</view>
+   <view slot="content">回收站</view>
+</cu-custom>
+<view class="cu-list menu card-menu margin-top" wx:for="{{recycle}}" wx:key>
+   <view class="cu-item border-bottom">
+      <view class="content">
+         <text class="text-grey padding-right-xl">开始时间</text>
+         <text>{{item.start_time}}</text>
+      </view>
+   </view>
+   <view class="cu-item border-bottom">
+      <view class="content">
+         <text class="text-grey padding-right-xl">结束时间</text>
+         <text>{{item.end_time}}</text>
+      </view>
+   </view>
+   <view class="cu-item border-bottom">
+      <view class="content">
+         <text class="text-grey padding-right-xl">请假类型</text>
+         <text>{{item.type}}</text>
+      </view>
+   </view>
+   <view class="cu-item border-bottom">
+      <view class="content">
+         <text class="text-grey padding-right-xl">请假原因</text>
+         <text>{{item.result}}</text>
+      </view>
+   </view>
+   <view class="cu-form-group">
+      <view class="action">
+      </view>
+      <view class="action">
+         <button class="cu-btn bg-blue shadow" bindtap="edit" data-index="{{index}}">重新编辑</button>
+         <button class="cu-btn bg-red shadow margin-left" bindtap="remove" data-index="{{index}}">删除</button>
+      </view>
+   </view>
+</view>

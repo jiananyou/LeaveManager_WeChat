@@ -1,0 +1,44 @@
+<cu-custom bgColor="bg-gradual-blue">
+   <view slot="content">请假申请管理</view>
+</cu-custom>
+<view class='nav-list margin-top-lg'>
+   <view class="nav-li bg-blue" bindtap="addVacate" wx:if="{{identity=='学生'}}">
+      <view class="nav-title">填写请假申请</view>
+      <view class="nav-name">vacate</view>
+      <text class='cuIcon-edit'></text>
+   </view>
+   <view class="nav-li bg-green" bindtap="findPass">
+         <view class="nav-title">{{identity=='老师'?'已读':'审核通过'}}</view>
+         <view class="nav-name">{{identity=='老师'?'read':'pass'}}</view>
+      <text class='cuIcon-roundcheck'></text>
+   </view>
+   <view class="nav-li bg-orange" bindtap="findChecking">
+      <view class="nav-title">{{identity=='老师'?'未读':'待审核'}}</view>
+      <view class="nav-name">{{identity=='老师'?'not read':'checking'}}</view>
+      <text class='cuIcon-refresh'></text>
+   </view>
+   <view class="nav-li bg-red" bindtap="findFail" wx:if="{{identity!='老师'}}">
+      <view class="nav-title">审核未通过</view>
+      <view class="nav-name">fail</view>
+      <text class='cuIcon-roundclose'></text>
+   </view>
+   <view class="nav-li bg-grey" bindtap="findRecycle" wx:if="{{identity=='学生'}}">
+      <view class="nav-title">回收站</view>
+      <view class="nav-name">recycle</view>
+      <text class='cuIcon-delete'></text>
+   </view>
+</view>
+<!-- 消息推送dialog -->
+<view class="cu-modal {{showDialog?'show':''}}">
+   <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+         <view class="content">提示信息</view>
+         <view class="action" bindtap="hideDialog">
+            <text class="cuIcon-close text-red"></text>
+         </view>
+      </view>
+      <view class="padding-xl">
+         {{identity=='老师'?'您有新的请假申请待阅读！':'您有新的请假申请待审核！'}}
+      </view>
+   </view>
+</view>

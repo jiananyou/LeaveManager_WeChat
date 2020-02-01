@@ -1,0 +1,43 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="true">
+   <view slot="backText">返回</view>
+   <view slot="content">待审核的请假信息</view>
+</cu-custom>
+<view wx:if="{{vacateList!=''}}">
+   <view class="cu-list menu card-menu margin-top" wx:for="{{vacateList}}" wx:key>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">姓名</text>
+            <text>{{item.stu_name}}</text>
+         </view>
+      </view>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">提交时间</text>
+            <text>{{item.submit_time}}</text>
+         </view>
+      </view>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">请假时间段</text>
+            <text>{{item.start_time+' ~ '+item.end_time}}</text>
+         </view>
+      </view>
+      <view class="cu-item border-bottom">
+         <view class="content">
+            <text class="text-grey padding-right-xl">请假类型</text>
+            <text>{{item.type}}</text>
+         </view>
+      </view>
+      <view class="cu-form-group">
+         <view class="action">
+         </view>
+         <view class="action">
+            <button class="cu-btn bg-blue shadow" bindtap="getInfo" data-index="{{index}}">查看详情</button>
+            <block wx:if="{{identity!='学生'&&identity!='老师'}}">
+               <button class="cu-btn bg-red shadow margin-left" bindtap="refuse" data-index="{{index}}">否决</button>
+               <button class="cu-btn bg-green shadow margin-left" bindtap="accept" data-index="{{index}}">批准</button>
+            </block>
+         </view>
+      </view>
+   </view>
+</view>

@@ -1,0 +1,21 @@
+input {
+   text-align: right;
+}
+
+.course-list {
+   display: flex;
+   flex-flow: row wrap;
+   align-content: flex-start;
+}
+
+.course {
+   flex: 0 0 28%;
+   color: white;
+   background-color: grey;
+   box-sizing: border-box;
+   border-radius: 10rpx;
+   height: 70rpx;
+   line-height: 70rpx;
+   text-align: center;
+   margin: 2.6%;
+}

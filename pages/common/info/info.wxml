@@ -1,0 +1,131 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="true">
+   <view slot="backText">返回</view>
+   <view slot="content">请假详情</view>
+</cu-custom>
+<view class="cu-bar bg-white">
+   <view class='action'>
+      <text class='cuIcon-titles text-blue'></text>审批流程
+   </view>
+</view>
+<!-- 审批流程 -->
+<block wx:if="{{step==1}}">
+   <view class="bg-white padding-bottom">
+      <view class="cu-steps">
+         <view class="cu-item {{status==-1?'text-red':'text-yellow'}}">
+            <text class="cuIcon-{{status==-1?nopassIcon:waitIcon}}"></text> {{stepList[0]}}
+         </view>
+         <view class="cu-item">
+            <text class="cuIcon-title"></text> {{stepList[1]}}
+         </view>
+         <view class="cu-item">
+            <text class="cuIcon-title"></text> {{stepList[2]}}
+         </view>
+      </view>
+   </view>
+</block>
+<block wx:if="{{step==2}}">
+   <view class="bg-white padding-bottom">
+      <view class="cu-steps">
+         <view class="cu-item text-green">
+            <text class="cuIcon-{{passIcon}}"></text> {{stepList[0]}}
+         </view>
+         <view class="cu-item {{status==-1?'text-red':'text-yellow'}}">
+            <text class="cuIcon-{{status==-1?nopassIcon:waitIcon}}"></text> {{stepList[1]}}
+         </view>
+         <view class="cu-item">
+            <text class="cuIcon-title"></text> {{stepList[2]}}
+         </view>
+      </view>
+   </view>
+</block>
+<block wx:if="{{step==3}}">
+   <view class="bg-white padding-bottom">
+      <view class="cu-steps">
+         <view class="cu-item text-green">
+            <text class="cuIcon-{{passIcon}}"></text> {{stepList[0]}}
+         </view>
+         <view class="cu-item text-green">
+            <text class="cuIcon-{{passIcon}}"></text> {{stepList[1]}}
+         </view>
+         <view class="cu-item text-green">
+            <text class="cuIcon-{{passIcon}}"></text> {{stepList[2]}}
+         </view>
+      </view>
+   </view>
+</block>
+
+<view class="cu-bar bg-white margin-top">
+   <view class='action'>
+      <text class='cuIcon-titles text-blue'></text>请假信息
+   </view>
+</view>
+<view class="cu-list menu">
+   <view class="cu-item">
+      <view class="content">
+         <text class="padding-left">申请人</text>
+      </view>
+      <view class="action">
+         <text class="text-grey">{{stu_name}}</text>
+      </view>
+   </view>
+   <view class="cu-item">
+      <view class="content">
+         <text class="padding-left">申请提交时间</text>
+      </view>
+      <view class="action">
+         <text class="text-grey">{{submit_time}}</text>
+      </view>
+   </view>
+   <view class="cu-item">
+      <view class="content">
+         <text class="padding-left">请假时间段</text>
+      </view>
+      <view class="action">
+         <text class="text-grey">{{start_time+' ~ '+end_time}}</text>
+      </view>
+   </view>
+   <view class="cu-item">
+      <view class="content">
+         <text class="padding-left">请假天数</text>
+      </view>
+      <view class="action">
+         <text class="text-grey">{{period}}</text>
+      </view>
+   </view>
+   <view class="cu-item">
+      <view class="content">
+         <text class="padding-left">请假类型</text>
+      </view>
+      <view class="action">
+         <text class="text-grey">{{type}}</text>
+      </view>
+   </view>
+   <view class="cu-item">
+      <view class="content">
+         <text class="padding-left">请假原因</text>
+      </view>
+      <view class="action">
+         <text class="text-grey">{{result}}</text>
+      </view>
+   </view>
+</view>
+
+<view class="cu-bar bg-white margin-top">
+   <view class='action'>
+      <text class='cuIcon-titles text-blue'></text>请假课程清单
+   </view>
+</view>
+<view class="course-list">
+   <view class="course" wx:for="{{course_list}}" wx:key>
+      {{item}}
+   </view>
+</view>
+
+<view class="cu-form-group margin-top-xl" wx:if="{{identity!='学生'&&identity!='老师'&&show==1}}">
+   <view class="action">
+   </view>
+   <view class="action">
+      <button class="cu-btn bg-red shadow margin-left" bindtap="refuse">否决</button>
+      <button class="cu-btn bg-green shadow margin-left" bindtap="accept">批准</button>
+   </view>
+</view>
